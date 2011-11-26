@@ -37,7 +37,8 @@ void loop() {
   int lightLevel = analogRead(SENSOR);
   Serial.println(lightLevel);
   
-  int brightness = map(lightLevel, 0, 1024,  255, 0);
+  int brightness = map(lightLevel, 50, 500,   0, 255);
+  brigtness = contrain(0,255);
   
   rgb(brightness,brightness,brightness);
   
