@@ -3,15 +3,23 @@
 
 #define LED 6
 
+#define RED 3
+#define GREEN 5
+#define BLUE 6
+
+int led[] = {RED, GREEN, BLUE};
+
 void setup() {
-  pinMode(LED, OUTPUT);
+  for(int i=0; i<3; i++)
+    pinMode(led[i], OUTPUT);
 }
 
 void loop() {
-  digitalWrite(LED, HIGH);
+  for(int i=0; i<3; i++) {
+  digitalWrite(led[i], LOW);
   delay(1000);
-  digitalWrite(LED, LOW);
+  digitalWrite(led[i], HIGH);
   delay(100);
  }
+}
 
-// You want the cu serial port when you run for the first time.
