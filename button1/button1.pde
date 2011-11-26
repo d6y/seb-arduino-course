@@ -21,7 +21,7 @@ void setup() {
   
 }
 
-int state = HIGH;
+int ledState = HIGH; // i.e., Off :-(
 
 boolean wasLow = false;
 
@@ -42,10 +42,11 @@ boolean click() {
 void loop() {
   
   if (click()) { 
-    state = state == HIGH ? LOW : HIGH;     
+    ledState = ledState == HIGH ? LOW : HIGH;     
   }
   
-  digitalWrite(RED, state);
+  digitalWrite(RED, ledState);
   
+  // if you get "bouncing" add delay(10) to "debounce"
 }
 
