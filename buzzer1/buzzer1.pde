@@ -33,21 +33,14 @@ void rgb(int r, int g, int b) {
 
 void loop() {
 
+  
   if (digitalRead(BUTTON)==LOW) {
-    tone(BUZZER,2000,100);
     while (digitalRead(BUTTON)==LOW) {
-      // don't beep again until the button is released
+     // (dark) 0 - 1024 (bright)
+      int lightLevel = analogRead(SENSOR);
+      tone(BUZZER,lightLevel*3,100);
     }
   }
-  
-  // (dark) 0 - 1024 (bright)
-  int lightLevel = analogRead(SENSOR);
-  Serial.println(lightLevel);
-  
-  int brightness = map(lightLevel, 50, 500,   0, 255);
-  brightness = constrain(brightness, 0,255);
-  
-  rgb(brightness,brightness,brightness);
   
   delay(50);
   
