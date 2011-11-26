@@ -34,5 +34,7 @@ void loop() {
   int lightLevel = analogRead(SENSOR);
   Serial.println(lightLevel);
   delay(50);
+  analogWrite(RED, 255-(lightLevel/4));
+  
 }
 
