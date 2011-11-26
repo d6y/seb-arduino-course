@@ -22,22 +22,23 @@ void setup() {
 }
 
 
-float brightness = 255; // off
+float darkness = 255; // off
+
 float delta = 0.005;
 
 void loop() {
  
- if (digitalRead(BUTTON)==LOW) {
-   brightness = brightness - delta;
-   if (brightness < 0) 
-     brightness=0;
- } else {
-   brightness = brightness + delta;
-   if (brightness > 255) 
-   brightness=255;
- }
-  
- analogWrite(GREEN, brightness);
+ if (digitalRead(BUTTON)==LOW) 
+   darkness = darkness - delta;
+  else 
+   darkness = darkness + delta;
+
+ if (darkness < 0) 
+   darkness=0;
+ else if (darkness > 255) 
+   darkness=255;
+
+ analogWrite(GREEN, (int)darkness);
   
 }
 
