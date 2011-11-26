@@ -22,22 +22,22 @@ void setup() {
 }
 
 
+float brightness = 255; // off
+float delta = 0.005;
+
 void loop() {
+ 
+ if (digitalRead(BUTTON)==LOW) {
+   brightness = brightness - delta;
+   if (brightness < 0) 
+     brightness=0;
+ } else {
+   brightness = brightness + delta;
+   if (brightness > 255) 
+   brightness=255;
+ }
   
-  // fade up
-  for(int i=0; i<256; i++) {
-    analogWrite(BLUE, 255-i);
-    delay(3);
-  }  
-  
-  // fade down
-  for(int i=0; i<256; i++) {
-    analogWrite(BLUE, i);
-    delay(3);
-  }  
-  
-  
-  delay(300);
+ analogWrite(GREEN, brightness);
   
 }
 
