@@ -23,22 +23,18 @@ void setup() {
 
 
 float darkness = 255; // off
-
-float delta = 0.005;
+float delta = 0.05;
 
 void loop() {
  
- if (digitalRead(BUTTON)==LOW) 
+ if (digitalRead(BUTTON)==LOW) {
    darkness = darkness - delta;
-  else 
+ } else {
    darkness = darkness + delta;
+ }
 
- if (darkness < 0) 
-   darkness=0;
- else if (darkness > 255) 
-   darkness=255;
-
- analogWrite(GREEN, (int)darkness);
+ darkness = constrain(darkness, 0, 255);  
+ analogWrite(GREEN, darkness);
   
 }
 
