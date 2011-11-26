@@ -27,29 +27,10 @@ void toggle(int rate, int led) {
 void loop() {
   
   counter++;
-//  toggle(500, RED);
-//  toggle(250, GREEN);
-//  
- 
-  if (counter%1200 < 600) {
-    digitalWrite(RED, HIGH);
-  } else {
-    digitalWrite(RED, LOW);
-  }
   
-  if (counter%600 < 300) {
-    digitalWrite(GREEN, HIGH);
-  } else {
-    digitalWrite(GREEN, LOW);
-  }
-  
-  if (counter%300 < 150) {
-    digitalWrite(BLUE, HIGH);
-  } else {
-    digitalWrite(BLUE, LOW);
-  }
-  
-  
+  toggle(600, RED);
+  toggle(300, GREEN);
+  toggle(150, BLUE);
  
   delay(1); // force loop to run roughly once a millisecond.
   
