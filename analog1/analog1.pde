@@ -23,7 +23,7 @@ void setup() {
 
 
 float darkness = 255; // off
-float delta = 0.05;
+float delta = 0.005;
 
 void loop() {
  
@@ -34,6 +34,10 @@ void loop() {
  }
 
  darkness = constrain(darkness, 0, 255);  
+ 
+ // PWM = pulse width modulation
+ // Brightness is really just runng the led on/off 400-ish times a second
+ // in diffeent proportions for different brightnesses.
  analogWrite(GREEN, darkness);
   
 }
