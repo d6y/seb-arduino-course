@@ -23,9 +23,25 @@ void setup() {
 
 int state = HIGH;
 
+boolean wasLow = false;
+
+boolean click() {
+  if (digitalRead(BUTTON)==HIGH && wasLow) {
+     wasLow = false;
+     return true;
+  } if (digitalRead(BUTTON)==LOW) {
+    wasLow = true;
+    return false;
+  } else {
+    return false;
+  }
+  
+  
+}
+
 void loop() {
   
-  if (digitalRead(BUTTON)==LOW) { 
+  if (click()) { 
     state = state == HIGH ? LOW : HIGH;     
   }
   
