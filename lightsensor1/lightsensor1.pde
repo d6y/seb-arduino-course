@@ -20,21 +20,28 @@ void setup() {
   }
   
   pinMode(BUTTON, INPUT);
-  //pinMode(SENSOR, INPUT);  
   
   Serial.begin(9600); // 9600 baud for USB?
   
 }
 
+void rgb(int r, int g, int b) {
+  analogWrite(RED, r);
+  analogWrite(GREEN, g);
+  analogWrite(BLUE, b);
+}
 
 void loop() {
 
   // (dark) 0 - 1024 (bright)
-     
   int lightLevel = analogRead(SENSOR);
   Serial.println(lightLevel);
+  
+  int brightness = map(lightLevel, 0, 1024,  255, 0);
+  
+  rgb(brightness,brightness,brightness);
+  
   delay(50);
-  analogWrite(RED, 255-(lightLevel/4));
   
 }
 
