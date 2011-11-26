@@ -9,8 +9,10 @@
 int led[] = {RED, GREEN, BLUE};
 
 void setup() {
-  for(int i=0; i<3; i++)
+  for(int i=0; i<3; i++) {
     pinMode(led[i], OUTPUT);
+    digitalWrite(led[i], HIGH);
+  }
 }
 
 void loop() {
