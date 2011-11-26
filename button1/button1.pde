@@ -21,13 +21,15 @@ void setup() {
   
 }
 
+int state = HIGH;
 
 void loop() {
   
-  if (digitalRead(BUTTON)==LOW) 
-    digitalWrite(RED, LOW);
-  else
-    digitalWrite(RED, HIGH);
-    
+  if (digitalRead(BUTTON)==LOW) { 
+    state = state == HIGH ? LOW : HIGH;     
+  }
+  
+  digitalWrite(RED, state);
+  
 }
 
